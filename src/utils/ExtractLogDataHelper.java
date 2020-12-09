@@ -11,6 +11,14 @@ import java.util.List;
 
 public class ExtractLogDataHelper {
 
+    /**
+     * The getUnsuccessfulRequestPagesList method returns a List of Request Objects
+     * with requests that have been successful (when status code > 200 and status code <300)
+     *
+     * @author  Anastasios Kentominas
+     * @version 1.0
+     * @since   2020-09-12
+     */
     public static ArrayList<Request> getRequestPagesList() {
 
         ArrayList<Request> requests = new ArrayList<>();
@@ -34,6 +42,14 @@ public class ExtractLogDataHelper {
         return requests;
     }
 
+    /**
+     * The getUnsuccessfulRequestPagesList method returns a List of Request Objects
+     * with requests that have been unsuccessful (when status code < 200 or status code >=300)
+     *
+     * @author  Anastasios Kentominas
+     * @version 1.0
+     * @since   2020-09-12
+     */
     public static ArrayList<Request> getUnsuccessfulRequestPagesList() {
 
         ArrayList<Request> requests = new ArrayList<>();
@@ -54,6 +70,15 @@ public class ExtractLogDataHelper {
         return requests;
     }
 
+    /**
+     * The getArrayListData method reads from the List loaded from the log file
+     * and converting them to structured List of Arrays of Strings that can be accessed
+     * and manipulated
+     *
+     * @author  Anastasios Kentominas
+     * @version 1.0
+     * @since   2020-09-12
+     */
     public static ArrayList<String[]> getArrayListData() {
 
                 ArrayList<String[]> finale = new ArrayList<>();
@@ -81,7 +106,14 @@ public class ExtractLogDataHelper {
     }
 
 
-
+    /**
+     * The getListFromSource method reads the logs from /log path
+     * and loading them to a List as Strings
+     *
+     * @author  Anastasios Kentominas
+     * @version 1.0
+     * @since   2020-09-12
+     */
     public static List getListFromSource() throws IOException {
 
     String filename = "src\\log\\access_log_Aug95";
