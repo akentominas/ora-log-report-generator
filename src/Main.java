@@ -2,13 +2,14 @@ import business.Metrics;
 import utils.ExtractLogDataHelper;
 import utils.MetricsHelper;
 
+import java.io.*;
 import java.util.Scanner;
+import java.nio.file.Files;
+
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("---THIS SOFTWARE WILL PROCESS LOG FILES AND GENERATE STATISTICAL REPORTS FOR IT---\n\n");
-
-
 
         int input = 0;
 
@@ -28,36 +29,36 @@ public class Main {
 
             input = console.nextInt();
 
-        switch (input)
-        {
-            case 1 :
-                System.out.println("=================================================================");
-                Metrics.printTenMostRequestedPages(ExtractLogDataHelper.getRequestPagesList(), 10);
-                break;
+            switch (input)
+            {
+                case 1 :
+                    System.out.println("=================================================================");
+                    Metrics.printTenMostRequestedPages(ExtractLogDataHelper.getRequestPagesList(), 10);
+                    break;
 
-            case 2 :
-                System.out.println("=================================================================");
-                Metrics.printSuccessfulRequests(ExtractLogDataHelper.getRequestPagesList());
-                break;
+                case 2 :
+                    System.out.println("=================================================================");
+                    Metrics.printSuccessfulRequests(ExtractLogDataHelper.getRequestPagesList());
+                    break;
 
-            case 3 :
-                System.out.println("=================================================================");
-                Metrics.printUnsuccessfulRequests(ExtractLogDataHelper.getRequestPagesList());
-                break;
+                case 3 :
+                    System.out.println("=================================================================");
+                    Metrics.printUnsuccessfulRequests(ExtractLogDataHelper.getRequestPagesList());
+                    break;
 
-            case 4 :
-                System.out.println("=================================================================");
-                Metrics.printTopTenUnsuccessfulRequests(ExtractLogDataHelper.getUnsuccessfulRequestPagesList(), 10);
-                break;
+                case 4 :
+                    System.out.println("=================================================================");
+                    Metrics.printTopTenUnsuccessfulRequests(ExtractLogDataHelper.getUnsuccessfulRequestPagesList(), 10);
+                    break;
 
-            case 5 :
-                System.out.println("=================================================================");
-                Metrics.printTenMostFrequentRequests(ExtractLogDataHelper.getRequestPagesList(), 10);
-                break;
+                case 5 :
+                    System.out.println("=================================================================");
+                    Metrics.printTenMostFrequentRequests(ExtractLogDataHelper.getRequestPagesList(), 10);
+                    break;
 
-            default :
-                System.out.println("\n\nEXIT...");
-        }
+                default :
+                    System.out.println("\n\nEXIT...");
+            }
         }
     }
 

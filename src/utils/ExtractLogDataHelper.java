@@ -2,12 +2,11 @@ package utils;
 
 import model.Request;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ExtractLogDataHelper {
 
@@ -116,14 +115,12 @@ public class ExtractLogDataHelper {
      */
     public static List getListFromSource() throws IOException {
 
-    String filename = "src\\log\\access_log_Aug95";
-
         List<String> result = new ArrayList<>();
         BufferedReader br = null;
 
         try {
 
-            br = new BufferedReader(new FileReader(filename));
+            br = new BufferedReader(new InputStreamReader(getFileFromResourceAsStream("log/access_log_Aug95")));
 
             String line;
             while ((line = br.readLine()) != null) {
@@ -140,4 +137,20 @@ public class ExtractLogDataHelper {
 
         return result;
     }
+
+    public static InputStream getFileFromResourceAsStream(String fileName) {
+
+        // The class loader that loaded the class
+        ClassLoader cl = Thread.currentThread().getContextClassLoader();
+        InputStream inputStream = cl.getResourceAsStream(fileName);
+
+        // the stream holding the file content
+        if (inputStream == null) {
+            throw new IllegalArgumentException("file not found! " + fileName);
+        } else {
+            return inputStream;
+        }
+
+    }
+
 }

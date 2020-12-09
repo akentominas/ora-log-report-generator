@@ -1,3 +1,5 @@
 .idea
 oracle-task-version-1.iml
 out/
+*.class
+src/META-INF
