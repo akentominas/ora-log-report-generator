@@ -10,7 +10,16 @@ import java.util.stream.Collectors;
 
 public class Metrics {
 
-
+    /**
+     * The printTenMostFrequentRequests method calculates the number of the most frequent requested end points
+     * and printing the page and the number occurred
+     *
+     * @author  Anastasios Kentominas
+     * @param requests is the list of all requests made
+     * @param k is the number of the top most frequently requested pages that we want to print
+     * @version 1.0
+     * @since   2020-09-12
+     */
     public static void printTenMostFrequentRequests(List<Request> requests, int k) {
 
         Map<String, Integer> mp = new HashMap<String, Integer>();
@@ -35,6 +44,15 @@ public class Metrics {
 
     }
 
+    /**
+     * The printSuccessfulRequests method calculates percentage of successful
+     * requests made
+     *
+     * @author  Anastasios Kentominas
+     * @param requests is the list of all requests made
+     * @version 1.0
+     * @since   2020-09-12
+     */
     public static double printSuccessfulRequests(List<Request> requests) {
 
         DecimalFormat df2 = new DecimalFormat("#.##");
@@ -58,6 +76,15 @@ public class Metrics {
 
     }
 
+    /**
+     * The printUnsuccessfulRequests method calculates percentage of unsuccessful
+     * requests made
+     *
+     * @author  Anastasios Kentominas
+     * @param requests is the list of all requests made
+     * @version 1.0
+     * @since   2020-09-12
+     */
     public static void printUnsuccessfulRequests(List<Request> requests) {
 
         DecimalFormat df2 = new DecimalFormat("#.##");
@@ -79,6 +106,16 @@ public class Metrics {
 
     }
 
+    /**
+     * The printTopTenUnsuccessfulRequests method calculates the number of the most frequently
+     * unsuccessful requested pages made
+     *
+     * @author  Anastasios Kentominas
+     * @param requests is the list of all requests made
+     * @param k is the number of the top most frequently requested pages that we want to print
+     * @version 1.0
+     * @since   2020-09-12
+     */
     public static void printTopTenUnsuccessfulRequests(List<Request> requests, int k) {
 
         Map<String, Integer> mp = new HashMap<String, Integer>();
@@ -102,6 +139,16 @@ public class Metrics {
             System.out.println("PAGE["+ (i+1) +"]: " + list.get(i).getKey() + " WAS REQUESTED: " + list.get(i).getValue() + " TIMES.");
     }
 
+    /**
+     * The printTenMostRequestedPages method calculates the number of the most frequently
+     * requested pages made
+     *
+     * @author  Anastasios Kentominas
+     * @param requests is the list of all requests made
+     * @param k is the number of the top most frequently requested pages that we want to print
+     * @version 1.0
+     * @since   2020-09-12
+     */
     public static void printTenMostRequestedPages(List<Request> requests, int k) {
 
         Map<String, Integer> mp = new HashMap<String, Integer>();
